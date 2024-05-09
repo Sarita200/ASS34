@@ -6,11 +6,12 @@
     <title>Home</title>
 </head>
 <body>
-    <div class="action_container">
-        <input type="text" id="input_element"/>
-        <button onclick="add()">ADD</button><br/><br/><br/>
+    <div class="list-container" id="list-container">
 
-        <input type="text"/>
+    </div>
+    <div class="action_container">
+        <input type="text" id="input-element"/>
+        <button onclick="add()">ADD</button>
         <button onclick="show()">SHOW</button>
     </div>
     
@@ -18,12 +19,20 @@
         const todoList = []
 
         function add(){
-            const input_element = document.getElementById(input_element)
-            todoList.push(input_element.value)
-            input_element.value = ""
+            const inputElement = document.getElementById('input-element');
+            todoList.push(inputElement.value);
+            inputElement.value = "";
         }
 
-        
+        function show(){
+            const listContainer = document.getElementById('list-container');
+            listContainer.innerHTML = "";
+
+            for(const todoItem of todoList)
+             {
+                listContainer.innerHTML = listContainer.innerHTML + todoItem + "<br/>";
+             }
+        }
     </script>
 </body>
 </html>
